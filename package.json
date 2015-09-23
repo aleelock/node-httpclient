@@ -1,0 +1,21 @@
+{
+  "name": "node-httpclient",
+  "version": "0.0.1",
+  "description": "A jQuery ajax style httpclient by node.js",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm i",
+    "test": "mocha test"
+  },
+  "keywords": [
+    "httpclient"
+  ],
+  "author": "aleelock@126.com",
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
+  },
+  "dependencies": {
+    "node-promise": "~0.5.12"
+  }
+}
