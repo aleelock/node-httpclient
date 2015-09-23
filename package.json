@@ -17,5 +17,10 @@
   },
   "dependencies": {
     "node-promise": "~0.5.12"
+  },
+  "homepage": "https://github.com/aleelock/node-httpclient",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aleelock/node-httpclient.git"
   }
 }
