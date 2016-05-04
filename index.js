@@ -87,8 +87,8 @@ function request(url, opt) {
 
 
   opt = wrapDefault(opt, defaultOpt);
-
-   //method
+   
+  //method
   var method = (opt.method||'GET').toUpperCase();
   opt.method = method;
 
@@ -154,7 +154,6 @@ function request(url, opt) {
   var aborted = false;
   var tid = null;
 
-
   var req = client.request(pathInfo, function(res) {
 
     var bf = new Buffer([]);
@@ -185,10 +184,9 @@ function request(url, opt) {
 
     });
 
-    res.on('error', function(err) {
+    res.on('error', function(err) { 
       if(aborted)return;
       aborted = true;
-      clearTimeout(tid);
 
       err = decodeResult(contentType, opt.dataType, err);
       opt.complete(err, status,res.headers);
@@ -200,6 +198,18 @@ function request(url, opt) {
       clearTimeout(tid);
     });
 
+  });
+
+  req.on('error', function(err){
+     //error
+     if(aborted)return;
+      aborted = true;
+      clearTimeout(tid);
+
+      opt.complete(err, 500, {});
+
+      opt.error(err, 500, {});
+      deferred.reject({data:err,error:err,status:500,headers: {}});
   });
 
   if (opt.timeout) {
@@ -255,7 +265,6 @@ function request(url, opt) {
 
   return deferred.promise;
 }
-
 
 function wrapDefault(opt, defaultOpt) {
   opt = opt || {};

@@ -1,6 +1,6 @@
 {
   "name": "node-httpclient",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A jQuery ajax style httpclient by node.js",
   "main": "index.js",
   "scripts": {

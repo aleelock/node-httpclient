@@ -318,5 +318,20 @@ describe('httpclient', function(){
 
   });
 
+  describe('head & options', function(){
+
+    it('should get failed', function(done){
+      httpclient.ajax({
+          url: 'http://10.1.1.1:32768',
+          error: function(result, status, headers){
+            status.should.be.exactly(500);
+            done();
+          }
+      });
+    }); 
+
+  });
+
+
 
 });
